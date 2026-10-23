@@ -1,0 +1,230 @@
+{
+  "created_at_utc": "2026-10-14T09:37:54.327556+00:00",
+  "python_version": "3.14.0",
+  "duckdb_version": "1.5.5",
+  "compression": "ZSTD",
+  "row_group_size": 65536,
+  "price_units": "Original dataset units; no currency conversion or scaling applied.",
+  "cleaning_rules": [
+    "IDs, postal codes, and article category codes remain text.",
+    "FN and Active become nullable 0/1 integers; blanks remain unknown.",
+    "Customer category labels are trimmed and uppercased; blank values remain null.",
+    "Missing ages remain null; missing-value indicators are added.",
+    "Dates and transaction numbers receive explicit types.",
+    "Article text is retained, with a description-missing indicator.",
+    "All transaction rows are preserved, including repeated purchases.",
+    "No training features, imputation, or churn labels are created."
+  ],
+  "files": {
+    "customers.parquet": {
+      "source_file": "customers.csv",
+      "source_bytes": 207135859,
+      "source_modified_at_utc": "2026-10-13T20:50:53.472495+00:00",
+      "source_rows": 1371980,
+      "parquet_rows": 1371980,
+      "row_count_verified": true,
+      "parquet_bytes": 92264762,
+      "schema": [
+        {
+          "column": "customer_id",
+          "type": "VARCHAR"
+        },
+        {
+          "column": "FN",
+          "type": "UTINYINT"
+        },
+        {
+          "column": "Active",
+          "type": "UTINYINT"
+        },
+        {
+          "column": "club_member_status",
+          "type": "VARCHAR"
+        },
+        {
+          "column": "fashion_news_frequency",
+          "type": "VARCHAR"
+        },
+        {
+          "column": "age",
+          "type": "SMALLINT"
+        },
+        {
+          "column": "postal_code",
+          "type": "VARCHAR"
+        },
+        {
+          "column": "age_missing",
+          "type": "BOOLEAN"
+        },
+        {
+          "column": "fn_missing",
+          "type": "BOOLEAN"
+        },
+        {
+          "column": "active_missing",
+          "type": "BOOLEAN"
+        }
+      ]
+    },
+    "articles.parquet": {
+      "source_file": "articles.csv",
+      "source_bytes": 36127865,
+      "source_modified_at_utc": "2026-10-13T20:49:54.047754+00:00",
+      "source_rows": 105542,
+      "parquet_rows": 105542,
+      "row_count_verified": true,
+      "parquet_bytes": 3531562,
+      "schema": [
+        {
+          "column": "article_id",
+          "type": "VARCHAR"
+        },
+        {
+          "column": "product_code",
+          "type": "VARCHAR"
+        },
+        {
+          "column": "prod_name",
+          "type": "VARCHAR"
+        },
+        {
+          "column": "product_type_no",
+          "type": "VARCHAR"
+        },
+        {
+          "column": "product_type_name",
+          "type": "VARCHAR"
+        },
+        {
+          "column": "product_group_name",
+          "type": "VARCHAR"
+        },
+        {
+          "column": "graphical_appearance_no",
+          "type": "VARCHAR"
+        },
+        {
+          "column": "graphical_appearance_name",
+          "type": "VARCHAR"
+        },
+        {
+          "column": "colour_group_code",
+          "type": "VARCHAR"
+        },
+        {
+          "column": "colour_group_name",
+          "type": "VARCHAR"
+        },
+        {
+          "column": "perceived_colour_value_id",
+          "type": "VARCHAR"
+        },
+        {
+          "column": "perceived_colour_value_name",
+          "type": "VARCHAR"
+        },
+        {
+          "column": "perceived_colour_master_id",
+          "type": "VARCHAR"
+        },
+        {
+          "column": "perceived_colour_master_name",
+          "type": "VARCHAR"
+        },
+        {
+          "column": "department_no",
+          "type": "VARCHAR"
+        },
+        {
+          "column": "department_name",
+          "type": "VARCHAR"
+        },
+        {
+          "column": "index_code",
+          "type": "VARCHAR"
+        },
+        {
+          "column": "index_name",
+          "type": "VARCHAR"
+        },
+        {
+          "column": "index_group_no",
+          "type": "VARCHAR"
+        },
+        {
+          "column": "index_group_name",
+          "type": "VARCHAR"
+        },
+        {
+          "column": "section_no",
+          "type": "VARCHAR"
+        },
+        {
+          "column": "section_name",
+          "type": "VARCHAR"
+        },
+        {
+          "column": "garment_group_no",
+          "type": "VARCHAR"
+        },
+        {
+          "column": "garment_group_name",
+          "type": "VARCHAR"
+        },
+        {
+          "column": "detail_desc",
+          "type": "VARCHAR"
+        },
+        {
+          "column": "detail_desc_missing",
+          "type": "BOOLEAN"
+        }
+      ]
+    },
+    "transactions.parquet": {
+      "source_file": "transactions_train.csv",
+      "source_bytes": 3488002253,
+      "source_modified_at_utc": "2026-10-13T21:07:06.908582+00:00",
+      "source_rows": 31788324,
+      "parquet_rows": 31788324,
+      "row_count_verified": true,
+      "parquet_bytes": 468099071,
+      "schema": [
+        {
+          "column": "t_dat",
+          "type": "DATE"
+        },
+        {
+          "column": "customer_id",
+          "type": "VARCHAR"
+        },
+        {
+          "column": "article_id",
+          "type": "VARCHAR"
+        },
+        {
+          "column": "price",
+          "type": "DOUBLE"
+        },
+        {
+          "column": "sales_channel_id",
+          "type": "UTINYINT"
+        }
+      ]
+    }
+  },
+  "customer_missing_values": {
+    "missing_fn": 895050,
+    "missing_active": 907576,
+    "missing_age": 15861,
+    "missing_news_frequency": 16009
+  },
+  "transaction_summary": {
+    "first_date": "2018-09-20",
+    "last_date": "2020-09-22",
+    "rows_with_null_required_fields": 0
+  },
+  "total_source_bytes": 3731265977,
+  "total_parquet_bytes": 563895395
+}

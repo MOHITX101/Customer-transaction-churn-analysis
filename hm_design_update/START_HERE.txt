@@ -1,0 +1,67 @@
+H&M RETAIL INTELLIGENCE — PRESENTATION UPDATE
+
+This package updates your existing eight-page Streamlit project.
+It uses your original images; no image generation or product-photo download.
+
+INSTALL
+1. Stop Streamlit with Ctrl+C.
+2. Extract this ZIP. Put the hm_design_update folder inside your project root,
+   alongside dashboard, data, models, images and .venv.
+3. Confirm these exact existing filenames:
+   images/H&M-Logo.svg.webp
+   images/images.jpg
+   The first file is WebP, despite having .svg in its name. Do not rename its extension.
+4. In Git Bash, from the project root, run:
+   ./.venv/Scripts/python.exe hm_design_update/install_design.py
+5. Restart from the same project root:
+   ./.venv/Scripts/python.exe -m streamlit run dashboard/app.py --server.address localhost
+6. Open http://localhost:8501. Refresh the page if necessary.
+
+WHAT CHANGES
+- dashboard/app.py: grouped navigation and shared header/footer.
+- dashboard/overview.py: new overview with brand panel, metrics, sales chart,
+  and working navigation links.
+- dashboard/hm_ui.py: shared design helpers and Plotly defaults.
+- dashboard/hm_theme.css: responsive layout, metric cards, controls and typography.
+- .streamlit/config.toml: light theme with crimson, charcoal and warm white.
+- Existing dashboard/pages/*.py: removes only known duplicated branding blocks
+  and page-config calls; updates a few exact chart-color strings.
+
+Your existing ML functions, queries, features, thresholds, saved models, datasets,
+images and notebooks are not replaced by the installer.
+
+The installer checks all expected files first and backs up every existing file
+it changes to backups/before_hm_design_<timestamp>/. It validates Python syntax
+before writing. Existing non-theme config settings are retained.
+
+OPTIONAL PREVIEW
+Run the installer with --check to list the changes without writing:
+   ./.venv/Scripts/python.exe hm_design_update/install_design.py --check
+
+MANUAL CODE ACCESS
+The full replacement files are under payload/. Read install_design.py for the
+exact presentation patches applied to existing pages. You can inspect every
+file before running the installer.
+
+RESTORE
+Stop Streamlit, then copy files from the printed backup folder back to their
+matching paths in the project. manifest.json lists the original files and
+which files were newly created. The previous app does not import the new
+shared-design files, so unused new files can remain after restoring originals.
+
+VALIDATION AND LIMITS
+The new overview and navigation are tested using synthetic fixtures because
+your Windows project/data/models are not available in this workspace. Confirm
+the real outputs locally after installation. No synthetic fixture data is
+included in this package.
+
+This is an independent academic H&M dataset project, not an official H&M service.
+This update does not deploy the application or add hosting, authentication or
+live customer data. It retains historical dates, dataset-unit labels, model
+limitations and campaign-assumption explanations.
+
+The app was smoke-tested using Streamlit 1.66.1 with synthetic data. Browser-based
+visual testing could not be completed in the authoring environment. Desktop and
+mobile CSS is included; inspect it locally. Future Streamlit DOM changes may
+require a CSS adjustment.
+No package upgrade is required by the installer.

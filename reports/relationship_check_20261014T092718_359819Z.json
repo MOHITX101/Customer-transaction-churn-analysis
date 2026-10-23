@@ -1,0 +1,122 @@
+{
+  "created_at_utc": "2026-10-14T09:26:54.890112+00:00",
+  "python_version": "3.14.0",
+  "duckdb_version": "1.5.5",
+  "scope": "Full-file ID and relationship checks; customer field profiles. No cleaning or churn labeling.",
+  "id_matching": "Exact text matching. ID whitespace is flagged, not silently removed.",
+  "customer_ids": {
+    "row_count": 1371980,
+    "blank_ids": 0,
+    "ids_with_outer_spaces": 0,
+    "nonblank_id_rows": 1371980,
+    "unique_nonblank_ids": 1371980,
+    "duplicate_rows_beyond_first": 0,
+    "duplicate_id_values": 0
+  },
+  "article_ids": {
+    "row_count": 105542,
+    "blank_ids": 0,
+    "ids_with_outer_spaces": 0,
+    "nonblank_id_rows": 105542,
+    "unique_nonblank_ids": 105542,
+    "duplicate_rows_beyond_first": 0,
+    "duplicate_id_values": 0
+  },
+  "transaction_links": {
+    "transaction_rows": 31788324,
+    "blank_customer_ids": 0,
+    "blank_article_ids": 0,
+    "customer_ids_with_outer_spaces": 0,
+    "article_ids_with_outer_spaces": 0,
+    "rows_with_unknown_customer": 0,
+    "rows_with_unknown_article": 0,
+    "rows_with_both_links": 31788324
+  },
+  "customer_field_distributions": {
+    "FN": [
+      {
+        "value": null,
+        "customer_rows": 895050,
+        "total_categories_in_field": 2
+      },
+      {
+        "value": "1.0",
+        "customer_rows": 476930,
+        "total_categories_in_field": 2
+      }
+    ],
+    "Active": [
+      {
+        "value": null,
+        "customer_rows": 907576,
+        "total_categories_in_field": 2
+      },
+      {
+        "value": "1.0",
+        "customer_rows": 464404,
+        "total_categories_in_field": 2
+      }
+    ],
+    "club_member_status": [
+      {
+        "value": "ACTIVE",
+        "customer_rows": 1272491,
+        "total_categories_in_field": 4
+      },
+      {
+        "value": "PRE-CREATE",
+        "customer_rows": 92960,
+        "total_categories_in_field": 4
+      },
+      {
+        "value": null,
+        "customer_rows": 6062,
+        "total_categories_in_field": 4
+      },
+      {
+        "value": "LEFT CLUB",
+        "customer_rows": 467,
+        "total_categories_in_field": 4
+      }
+    ],
+    "fashion_news_frequency": [
+      {
+        "value": "NONE",
+        "customer_rows": 877711,
+        "total_categories_in_field": 5
+      },
+      {
+        "value": "Regularly",
+        "customer_rows": 477416,
+        "total_categories_in_field": 5
+      },
+      {
+        "value": null,
+        "customer_rows": 16009,
+        "total_categories_in_field": 5
+      },
+      {
+        "value": "Monthly",
+        "customer_rows": 842,
+        "total_categories_in_field": 5
+      },
+      {
+        "value": "None",
+        "customer_rows": 2,
+        "total_categories_in_field": 5
+      }
+    ]
+  },
+  "distribution_limit_per_field": 100,
+  "distribution_note": "Profiles trim outer spaces and group blanks as null; IDs remain unchanged. At most 100 categories per field are shown.",
+  "age_profile": {
+    "blank_ages": 15861,
+    "invalid_or_nonfinite_ages": 0,
+    "noninteger_ages": 0,
+    "ages_outside_0_to_120": 0,
+    "numeric_min": 16.0,
+    "numeric_max": 99.0,
+    "numeric_median": 32.0
+  },
+  "age_note": "0 to 120 is a plausibility flag for review, not an automatic deletion rule."
+}

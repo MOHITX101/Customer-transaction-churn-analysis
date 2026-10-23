@@ -1,0 +1,9 @@
+{
+  "score_as_of_date": "2020-03-31",
+  "higher_risk_threshold": 0.5,
+  "higher_potential_threshold": 0.16333970399997724,
+  "potential_definition": "Predicted spending conditional on purchasing",
+  "potential_threshold_rule": "75th percentile of the scored population",
+  "boundary_rule": "Greater than or equal to the threshold",
+  "note": "Heuristic targeting groups; campaign impact is untested."
+}
